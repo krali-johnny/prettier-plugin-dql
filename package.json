@@ -17,7 +17,7 @@
     "dql",
     "formatter"
   ],
-  "author": "Your Name",
+  "author": "Johannes Krahofer",
   "license": "MIT",
   "peerDependencies": {
     "prettier": "^3.0.0"
