@@ -14,7 +14,7 @@ yarn add -D prettier prettier-plugin-dql
 
 ## Usage
 
-Add the plugin to your Prettier configuration (.prettierrc or prettier.config.js):
+Add the plugin to your `.prettierrc`:
 
 ```json
 {
@@ -22,21 +22,41 @@ Add the plugin to your Prettier configuration (.prettierrc or prettier.config.js
 }
 ```
 
-Or use it via the CLI:
+### Formatting DQL
 
-```bash
-prettier --plugin prettier-plugin-dql .
+This plugin supports formatting DQL in:
+
+1. `.dql` files.
+2. Tagged template literals with `dql` tag.
+3. Template literals with `/* dql */` comment.
+
+#### Examples
+
+**Tagged Template Literal:**
+
+```typescript
+const query = dql`fetch logs | filter level == "ERROR"`;
+```
+
+**Template Literal with Comment:**
+
+```typescript
+const query = /* dql */ `fetch logs | filter level == "ERROR"`;
+```
+
+**DQL File:**
+
+```dql
+fetch logs
+| filter level == "ERROR"
 ```
 
 ## Development
 
-### Scripts
-
-- `npm run build`: Compiles the TypeScript code.
-- `npm run format`: Formats the codebase using Prettier.
-- `npm run check:format`: Checks if the codebase is formatted correctly.
+1. Install dependencies: `pnpm install`
+2. Build the plugin: `pnpm build`
+3. Run tests/lint: `pnpm lint`
 
 ## License
 
 MIT
-
