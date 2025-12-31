@@ -24,7 +24,7 @@ const dqlPlugin: Plugin = {
       name: 'DQL',
       parsers: ['dql'],
       extensions: ['.dql'], // Optional: Add support for `.dql` files
-      linguistLanguageId: 1000, // Arbitrary ID
+      linguistLanguageId: 1406, // Arbitrary ID
     },
   ],
 };
