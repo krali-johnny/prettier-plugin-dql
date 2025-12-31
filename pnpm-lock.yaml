@@ -1,0 +1,45 @@
+lockfileVersion: '9.0'
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
+importers:
+
+  .:
+    dependencies:
+      pretty-dql:
+        specifier: file:../pretty-dql/pretty-dql-1.0.0.tgz
+        version: file:../pretty-dql/pretty-dql-1.0.0.tgz
+    devDependencies:
+      prettier:
+        specifier: ^3.0.0
+        version: 3.7.4
+      typescript:
+        specifier: ^5.0.0
+        version: 5.9.3
+
+packages:
+
+  prettier@3.7.4:
+    resolution: {integrity: sha512-v6UNi1+3hSlVvv8fSaoUbggEM5VErKmmpGA7Pl3HF8V6uKY7rvClBOJlH6yNwQtfTueNkGVpOv/mtWL9L4bgRA==}
+    engines: {node: '>=14'}
+    hasBin: true
+
+  pretty-dql@file:../pretty-dql/pretty-dql-1.0.0.tgz:
+    resolution: {integrity: sha512-kY1SMLMd6BYMlv3GrNoySfq39CzkMvTJ7J+Fyl1gfREQwandNoMe2KpU9KVn4UMqwSuo24reDpM8jv4lJ7uX0A==, tarball: file:../pretty-dql/pretty-dql-1.0.0.tgz}
+    version: 1.0.0
+    hasBin: true
+
+  typescript@5.9.3:
+    resolution: {integrity: sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
+snapshots:
+
+  prettier@3.7.4: {}
+
+  pretty-dql@file:../pretty-dql/pretty-dql-1.0.0.tgz: {}
+
+  typescript@5.9.3: {}
