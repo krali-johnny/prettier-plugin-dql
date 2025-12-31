@@ -1,6 +1,5 @@
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import jestPlugin from 'eslint-plugin-jest';
 import prettierPlugin from 'eslint-plugin-prettier';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
@@ -19,7 +18,6 @@ export default [
     },
     plugins: {
       '@typescript-eslint': tseslint.plugin,
-      jest: jestPlugin,
       prettier: prettierPlugin,
     },
     rules: {
