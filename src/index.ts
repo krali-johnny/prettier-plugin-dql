@@ -7,6 +7,8 @@ const dqlPlugin: Plugin = {
     dql: {
       parse: (text) => text, // Prettier requires a parser; we just return the raw text
       astFormat: 'dql', // Custom AST format identifier
+      locStart: () => 0,
+      locEnd: (node) => (typeof node === 'string' ? node.length : 0),
     },
   },
   printers: {
