@@ -22,6 +22,16 @@ Add the plugin to your `.prettierrc`:
 }
 ```
 
+### Importing the `dql` tag
+
+To avoid TypeScript errors and enable syntax highlighting (if supported by your editor), you can import the `dql` tag from the plugin:
+
+```typescript
+import { dql } from 'prettier-plugin-dql';
+
+const query = dql`fetch logs | filter level == "ERROR"`;
+```
+
 ### Formatting DQL
 
 This plugin supports formatting DQL in:

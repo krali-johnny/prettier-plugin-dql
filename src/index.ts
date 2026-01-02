@@ -62,7 +62,6 @@ function formatTemplateLiteral(node: any) {
     const raw = node.quasis[0].value.raw;
     try {
       const formatted = formatDql(raw);
-      // console.error('Formatted:', formatted);
       // Update the node
       node.quasis[0].value.raw = formatted;
       // We also need to update 'cooked' if possible, but 'raw' is what's used for printing usually?
@@ -71,10 +70,55 @@ function formatTemplateLiteral(node: any) {
     } catch {
       // Ignore errors
     }
+  } else {
+    // Handle template literals with expressions
+    let raw = '';
+    const placeholders: string[] = [];
+
+    for (let i = 0; i < node.quasis.length; i++) {
+      raw += node.quasis[i].value.raw;
+      if (i < node.quasis.length - 1) {
+        const placeholder = `dql_placeholder_${i}`;
+        placeholders.push(placeholder);
+        raw += placeholder;
+      }
+    }
+
+    try {
+      console.error('Formatting raw with placeholders:', raw);
+      const formatted = formatDql(raw);
+      console.error('Formatted result:', formatted);
+
+      // Split the formatted string back into quasis
+      // We use a regex that matches any of the placeholders
+      const placeholderRegex = /dql_placeholder_\d+/g;
+      const parts = formatted.split(placeholderRegex);
+
+      if (parts.length !== node.quasis.length) {
+        console.error('Parts length mismatch:', parts.length, node.quasis.length);
+        console.error('Formatted:', formatted);
+      }
+
+      if (parts.length === node.quasis.length) {
+        for (let i = 0; i < parts.length; i++) {
+          node.quasis[i].value.raw = parts[i];
+          node.quasis[i].value.cooked = parts[i];
+        }
+      }
+    } catch (e) {
+      console.error('Error formatting DQL with placeholders:', e);
+      // Ignore errors
+    }
   }
 }
 
-const dqlPlugin: Plugin = {
+function dql(strings: TemplateStringsArray, ...values: any[]) {
+  return strings.reduce((result, str, i) => {
+    return result + str + (i < values.length ? values[i] : '');
+  }, '');
+}
+
+const dqlPlugin: Plugin & { dql: typeof dql } = {
   parsers: {
     dql: {
       parse: (text) => text, // Prettier requires a parser; we just return the raw text
@@ -115,6 +159,7 @@ const dqlPlugin: Plugin = {
       linguistLanguageId: 1406, // Arbitrary ID
     },
   ],
+  dql,
 };
 
 export = dqlPlugin;
