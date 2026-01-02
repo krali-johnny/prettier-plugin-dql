@@ -490,7 +490,7 @@ packages:
     hasBin: true
 
   pretty-dql@file:../pretty-dql/pretty-dql-1.0.0.tgz:
-    resolution: {integrity: sha512-kY1SMLMd6BYMlv3GrNoySfq39CzkMvTJ7J+Fyl1gfREQwandNoMe2KpU9KVn4UMqwSuo24reDpM8jv4lJ7uX0A==, tarball: file:../pretty-dql/pretty-dql-1.0.0.tgz}
+    resolution: {integrity: sha512-pOblkdtJnGtI2tIouie/k2WN4sHoBRboz5OlGdKDX49n0ppNNPdHNurxfFsRPa54zNpquLEbFnwJjPMvl6hyFQ==, tarball: file:../pretty-dql/pretty-dql-1.0.0.tgz}
     version: 1.0.0
     hasBin: true
 
